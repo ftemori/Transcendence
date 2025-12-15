@@ -49,11 +49,11 @@ cd Transcendence
 - Copy the example env file: `cp .env.example .env`
 - Edit `.env` with your 42 API details, database credentials, and other configs (e.g., `DATABASE_URL`, `JWT_SECRET`).
 
-3. **Build and Run with Docker**:
+3. **Build and Run with Docker (Recommended)**:
 docker-compose up --build
 
 - This will spin up the backend, frontend, and database containers.
-- The app will be available at `http://localhost:3000` (or your configured port).
+- The app will be available at `https://localhost:8080` (or your configured port).
 
 4. **Manual Build (Optional)**:
 - Backend: `cd backend && npm install && npm run start:dev`
@@ -61,8 +61,6 @@ docker-compose up --build
 
 5. **Database Migration**:
 - Run `npx prisma migrate dev` in the backend directory to set up the schema.
-
-If you encounter issues, check the logs with `docker-compose logs` or ensure ports are free (e.g., 3000, 5432).
 
 ## 🎮 Usage
 
@@ -77,7 +75,7 @@ Pro Tip: Use the in-game chat to strategize during matches!
 
 ## 📸 Screenshots
 
-Dive into the visual journey of Transcendence with these screenshots, showcasing key aspects of the application:
+These screenshots are showcasing key aspects of the application:
 
 ![Screenshot 1](./1.png)  
 *Login Page: Secure entry point with 42 OAuth integration.*
@@ -99,28 +97,3 @@ Dive into the visual journey of Transcendence with these screenshots, showcasing
 
 ![Screenshot 7](./7.png)  
 *Settings Page: Manage account, privacy, and game preferences.*
-
-(Assuming screenshots are placed in the root directory as "1.png" to "7.png". If in a subfolder, adjust paths accordingly, e.g., `screenshots/1.png`.)
-
-## 🤝 Contributing
-
-We welcome contributions! To get involved:
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`).
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-4. Push to the branch (`git push origin feature/AmazingFeature`).
-5. Open a Pull Request.
-
-Please follow the [Code of Conduct](CODE_OF_CONDUCT.md) and report issues via the [Issues](https://github.com/ftemori/Transcendence/issues) tab.
-
-## 📄 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-## 🙏 Acknowledgements
-
-- **42 School**: For the inspiring project guidelines and curriculum.
-- **Open-Source Community**: Libraries like React, NestJS, and Socket.io made this possible.
-- **Contributors**: Special thanks to all who tested and provided feedback.
-
-If you have questions, feel free to open an issue or reach out. Happy gaming! 🏓
