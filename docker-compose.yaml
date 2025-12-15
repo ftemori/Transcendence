@@ -1,0 +1,72 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: my-frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+      - auth-service
+      - user-service
+    env_file:
+      - .env
+    environment:
+      - USE_HTTPS=true
+      - FORCE_HTTPS=true
+      - BACKEND_URL=http://backend:3000
+      - AUTH_URL=http://auth-service:4000
+      - USER_URL=http://user-service:5100
+      - WS_URL=ws://backend:3000
+    networks:
+      - trascendence
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: my-backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    networks:
+      - trascendence
+
+  auth-service:
+    build:
+      context: .
+      dockerfile: user_auth/Dockerfile
+    container_name: auth-service
+    ports:
+      - "4000:4000"
+    env_file:
+      - .env
+    volumes:
+      - db-auth:/app/site/build/db-auth
+    networks:
+      - trascendence
+  user-service:
+    build:
+      context: .
+      dockerfile: user_management/Dockerfile
+    container_name: user-service
+    ports:
+      - "5100:5100"
+    env_file:
+      - .env
+    volumes:
+      - db-users:/app/site/build/db-users
+      - db-match:/app/site/build/db-match
+    networks:
+      - trascendence
+
+volumes:
+  db-auth:
+  db-users:
+  db-match:
+
+networks:
+  trascendence:
+    driver: bridge

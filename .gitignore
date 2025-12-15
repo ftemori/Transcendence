@@ -1,0 +1,58 @@
+# OS and editor
+.DS_Store
+**/.DS_Store
+.vscode/
+.idea/
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs (root + monorepo packages)
+build/
+dist/
+**/build/
+**/dist/
+# Frontend
+frontend/dist/
+frontend/build/
+frontend/.vite/
+**/.vite/
+**/.cache/
+
+# Backend
+backend/build/
+backend/dist/
+
+# Auth service
+user_auth/site/build/
+
+# User management service
+user_management/site/build/
+
+# TypeScript
+**/*.tsbuildinfo
+
+# Coverage
+coverage/
+**/coverage/
+
+# Logs
+logs/
+**/logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Env files (keep example tracked)
+.env
+.env.*
+!.env.example
+
+# Misc
+*.tmp
+*.swp
+# SSL Certificates
+certs/*.key
+certs/*.crt

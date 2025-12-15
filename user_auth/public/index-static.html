@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Transcendence | PONG</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <h2>Welcome</h2>
+    <p>Please login or register if you don't have an account.</p>
+
+    <form id="authForm" method="POST" action="/login">
+      <label>
+        Username:
+        <input type="text" name="username" id="username" required /> </label
+      ><br /><br />
+      <label>
+        Password:
+        <input type="password" name="password" id="password" required /> </label
+      ><br /><br />
+      <div class="button-group">
+        <button type="submit">Login</button>
+        <button type="button" onclick="submitAsRegister()">Register</button>
+      </div>
+    </form>
+
+    <script>
+      function submitAsRegister() {
+        // Create a new form element dynamically
+        const form = document.createElement("form");
+        form.method = "POST";
+        form.action = "/register";
+
+        // Get username and password values
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Create hidden input fields
+        const userField = document.createElement("input");
+        userField.type = "hidden";
+        userField.name = "username";
+        userField.value = username;
+
+        const passField = document.createElement("input");
+        passField.type = "hidden";
+        passField.name = "password";
+        passField.value = password;
+
+        form.appendChild(userField);
+        form.appendChild(passField);
+
+        document.body.appendChild(form);
+        form.submit();
+      }
+    </script>
+  </body>
+</html>
